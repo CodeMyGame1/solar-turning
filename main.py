@@ -54,15 +54,15 @@ def mainloop():
             print("DELTA: " + str(brickthing.check()))
             print("ANGLE MOTORRIGHT: " + str(brickthing.motorright.angle())) #91 and -4 
             print(str(brickthing.check()) + "--1")
-            brickthing.motorright.run_angle(10, 10) #done
-            time.sleep(2) #done
-            '''if (brickthing.check() > 1):
+            #brickthing.motorright.run_angle(10, 10)
+            #time.sleep(2) #done
+            if (brickthing.check() > 1):
                 if (brickthing.motorright.angle() < -70):
                     print("OVERRIDE")
                     continue
                 else:
                 #brickthing.motorleft.run_angle(10, -10)
-                    brickthing.motorright.run_angle(10, 10) #10 left
+                    brickthing.motorright.run_angle(10, -10) #10 left
                     print("TURNED THIS WAY")
             elif (brickthing.check() < -1):
                 if (brickthing.motorright.angle() > 70):
@@ -70,9 +70,9 @@ def mainloop():
                     continue
                 else:
                     #brickthing.motorleft.run_angle(10, 10)
-                    brickthing.motorright.run_angle(10, -10) #-10 right
+                    brickthing.motorright.run_angle(10, 10) #-10 right
                     print("TURNED THAT WAY")
-            #brickthing.savefile.write("LEFT: %d | RIGHT: %d" % (brickthing.leftambient, brickthing.rightambient))'''
+            #brickthing.savefile.write("LEFT: %d | RIGHT: %d" % (brickthing.leftambient, brickthing.rightambient))
         print(brickthing.check())
         print("BREAK")
         time.sleep(5)
@@ -85,7 +85,4 @@ def mainloop():
 
 #brickthing.motorright.run_angle(10, 20)
 #brickthing.motorright.run_angle(10, -20)
-#mainloop()
-
-time.sleep(5)
 mainloop()

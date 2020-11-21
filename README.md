@@ -11,3 +11,13 @@ A short program so that the EV3 turns with the sun.
 - [x] Implemented design
 - [ ] Turns with the sun
 - [ ] Has been tested with the sun 
+
+# Documentation
+**Link**: [EV3Python](https://pybricks.github.io/ev3-micropython/)
+
+# Links of Interest
+- **Motor**: [Motors EV3Python](https://pybricks.github.io/ev3-micropython/ev3devices.html#motors)
+    - **Motor run_angle()** [run_angle() EV3Python](https://pybricks.github.io/ev3-micropython/ev3devices.html#pybricks.ev3devices.Motor.run_angle)
+- **Color Sensor**: [Color Sensor EV3Python](https://pybricks.github.io/ev3-micropython/ev3devices.html#color-sensor)
+    - **Ambience**: [Ambience EV3Python](https://pybricks.github.io/ev3-micropython/ev3devices.html#pybricks.ev3devices.ColorSensor.ambient)
+    
