@@ -22,23 +22,31 @@ class Parts():
         self.leftambient = 0
         self.rightambient = 0
         self.delta = 0
+        #self.arrayturnleft = [0, 0, 0, 0, 0]
+        #self.arrayturnright = [0, 0, 0, 0, 0]
         #self.savefile = open("testcheck.txt", "a")
     def check(self):
         self.leftambient = self.left.ambient()
         self.rightambient = self.right.ambient()
         self.delta = self.leftambient - self.rightambient
+        #return [self.leftambient, self.rightambient]
         return self.delta
         #print("LEFT: %d | RIGHT: %d" % (self.leftambient, self.rightambient))        
     def checkGyro(self):
         print(self.gyro)
     def whileCheck(self):
-        if (self.check() > 0.5):
+        #for x in range(5):
+        #    self.arrayturnleft[x], self.arrayturnleft[x] = self.check()
+        #    time.sleep(0.1)
+        #self.delta = (sum(self.arrayturnleft)/len(self.arrayturnleft) - sum(self.arrayturnright)/len(self.arrayturnright))
+        #print(self.delta)
+        if (self.check() > 0.5): #self.delta
             if (self.motorright.angle() > 45):
                 print("OVERRIDE")
             else:
                 self.motorright.run_angle(10, 10) #10 left
                 print("TURNED THIS WAY")
-        elif (self.check() < -0.5):
+        elif (self.check() < -0.5): #self.delta
             if (self.motorright.angle() < -45):
                 print("OVERRIDE")
             else:
@@ -46,7 +54,7 @@ class Parts():
                 print("TURNED THAT WAY")
         #brickthing.savefile.write("LEFT: %d | RIGHT: %d" % (brickthing.leftambient, brickthing.rightambient))'''
     def rapidcheck(self):
-        while brickthing.check() > 1 or brickthing.check() < -1: #while True:
+        while brickthing.check() > 1 or brickthing.check() < -1: #while True: | self.delta, self.delta
             brickthing.whileCheck()
         print(brickthing.check())
         print("BREAK")
@@ -54,6 +62,7 @@ class Parts():
 brickthing = Parts()
 
 def mainloop():
+    #brickthing.delta = brickthing.left.ambient() - brickthing.right.ambient()
     while True:
         brickthing.rapidcheck()
 
