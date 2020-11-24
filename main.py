@@ -31,57 +31,34 @@ class Parts():
         #print("LEFT: %d | RIGHT: %d" % (self.leftambient, self.rightambient))        
     def checkGyro(self):
         print(self.gyro)
+    def whileCheck(self):
+        if (self.check() > 0.5):
+            if (self.motorright.angle() > 45):
+                print("OVERRIDE")
+            else:
+                self.motorright.run_angle(10, 10) #10 left
+                print("TURNED THIS WAY")
+        elif (self.check() < -0.5):
+            if (self.motorright.angle() < -45):
+                print("OVERRIDE")
+            else:
+                self.motorright.run_angle(10, -10) #-10 right
+                print("TURNED THAT WAY")
+        #brickthing.savefile.write("LEFT: %d | RIGHT: %d" % (brickthing.leftambient, brickthing.rightambient))'''
 brickthing = Parts()
 
-def mainloop():
-    #for x in range (20):
+
+
+def rapidcheck():
     while True:
-        #checkedo = brickthing.check()
-        #print(checkedo)
-        '''if (checkedo == "TURN LEFT"):
-            brickthing.motorleft.run_time(3, 1, Stop.HOLD, wait=True)
-        elif (checkedo == "TURN RIGHT"):
-            brickthing.motorleft.run_time(3, 1, Stop.HOLD, wait=True)
-        elif (checkedo == "STAY"):
-            print("STAY")'''
-        '''if (checkedo > 4):
-            brickthing.motorleft.run_target(500, 90)
-        elif (checkedo < -4):
-            brickthing.motorright.run_target(500, 90)'''
-        while True:#brickthing.check() > 1 or brickthing.check() < -1:
-            print("LEFT: " + str(brickthing.leftambient))
-            print("RIGHT: " + str(brickthing.rightambient))
-            print("DELTA: " + str(brickthing.check()))
-            print("ANGLE MOTORRIGHT: " + str(brickthing.motorright.angle())) #91 and -4 
-            print(str(brickthing.check()) + "--1")
-            #brickthing.motorright.run_angle(10, 10)
-            #time.sleep(2) #done
-            if (brickthing.check() > 1):
-                if (brickthing.motorright.angle() < -70):
-                    print("OVERRIDE")
-                    continue
-                else:
-                #brickthing.motorleft.run_angle(10, -10)
-                    brickthing.motorright.run_angle(10, -10) #10 left
-                    print("TURNED THIS WAY")
-            elif (brickthing.check() < -1):
-                if (brickthing.motorright.angle() > 70):
-                    print("OVERRIDE")
-                    continue
-                else:
-                    #brickthing.motorleft.run_angle(10, 10)
-                    brickthing.motorright.run_angle(10, 10) #-10 right
-                    print("TURNED THAT WAY")
-            #brickthing.savefile.write("LEFT: %d | RIGHT: %d" % (brickthing.leftambient, brickthing.rightambient))
+        while brickthing.check() > 1 or brickthing.check() < -1: #while True:
+            brickthing.whileCheck()
         print(brickthing.check())
         print("BREAK")
         time.sleep(5)
-    #BRUHPLEASEWORK = Motor(Port.A)
-    #BRUHPLEASEWORK.run_time(200, 10, then=Stop.HOLD, wait=True)
-    #BRUHPLEASEWORK.run_target(500, 1000)
-    #time.sleep(5)
-    #BRUHPLEASEWORK.dc(100)
-    #time.sleep(10)
+
+def mainloop():
+    rapidcheck()
 
 #brickthing.motorright.run_angle(10, 20)
 #brickthing.motorright.run_angle(10, -20)
