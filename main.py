@@ -44,13 +44,13 @@ class Parts():
             if (self.motorright.angle() > 45):
                 print("OVERRIDE")
             else:
-                self.motorright.run_angle(10, 10) #10 left
+                self.motorright.run_angle(10, -10) #10 left
                 print("TURNED THIS WAY")
         elif (self.check() < -0.5): #self.delta
             if (self.motorright.angle() < -45):
                 print("OVERRIDE")
             else:
-                self.motorright.run_angle(10, -10) #-10 right
+                self.motorright.run_angle(10, 10) #-10 right
                 print("TURNED THAT WAY")
         #brickthing.savefile.write("LEFT: %d | RIGHT: %d" % (brickthing.leftambient, brickthing.rightambient))'''
     def rapidcheck(self):
