@@ -45,20 +45,17 @@ class Parts():
                 self.motorright.run_angle(10, -10) #-10 right
                 print("TURNED THAT WAY")
         #brickthing.savefile.write("LEFT: %d | RIGHT: %d" % (brickthing.leftambient, brickthing.rightambient))'''
-brickthing = Parts()
-
-
-
-def rapidcheck():
-    while True:
+    def rapidcheck(self):
         while brickthing.check() > 1 or brickthing.check() < -1: #while True:
             brickthing.whileCheck()
         print(brickthing.check())
         print("BREAK")
         time.sleep(5)
+brickthing = Parts()
 
 def mainloop():
-    rapidcheck()
+    while True:
+        brickthing.rapidcheck()
 
 #brickthing.motorright.run_angle(10, 20)
 #brickthing.motorright.run_angle(10, -20)
